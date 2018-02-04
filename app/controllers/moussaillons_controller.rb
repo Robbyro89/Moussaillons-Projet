@@ -4,6 +4,12 @@ class MoussaillonsController < ApplicationController
     @moussaillons = Moussaillon.all
   end
 
+  def create
+    @moussaillon = Moussaillon.new(moussaillon_params)
+    @moussaillon.save
+    redirect_to @moussaillon
+  end
+
   def show
     @moussaillon = Moussaillon.find(params[:id])
   end
@@ -14,19 +20,13 @@ class MoussaillonsController < ApplicationController
 
   def update
     @moussaillon = Moussaillon.find(params[:id])
-    @moussaillon.update(moussaillon_params)
-    redirect_to moussaillon_path
+    if @moussaillon.update(moussaillon_params)
+      redirect_to @moussaillon
+    else
+      render 'edit'
+    end
   end
-
-  def new
-    @moussaillon = Moussaillon.new
-  end
-
-  def create
-    moussaillon = Moussaillon.create(moussaillon_params)
-    redirect_to moussaillon_path(moussaillon.id)
-  end
-
+  
   def destroy
     @moussaillon = Moussaillon.find(params[:id])
     @moussaillon.destroy

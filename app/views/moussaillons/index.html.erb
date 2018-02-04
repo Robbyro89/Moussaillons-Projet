@@ -1,0 +1,15 @@
+<h1>Liste des Moussaillons <i>THP</i></h1>
+<br>
+<% @moussaillons.each do |moussaillon| %>
+  <h5><b><%= moussaillon.pseudo %></b></h5>
+  <p><i><%= moussaillon.email %></i></p>
+  <p>
+    <a href="<%= moussaillon_path(moussaillon.id) %>" class="btn btn-primary btn-sm">
+    voir le Moussaillon</a>
+  </p>
+<% end %>
+<br>
+<p>
+  <a href="<%= new_moussaillon_path %>" class="btn btn-success">
+    Creer un Moussaillon</a>
+</p>

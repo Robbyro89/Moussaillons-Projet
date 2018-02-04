@@ -1,0 +1,13 @@
+<h1><%= @moussaillon.pseudo %></h1>
+<p><%= @moussaillon.email %></p>
+<p><%= @moussaillon.biographie %></p>
+<br>
+<p>
+  <a href="<%= edit_moussaillon_path(@moussaillon) %>" class="btn btn-primary btn-sm">
+  Editer</a>
+</p>
+<br>
+<p>
+  <a href="<%= moussaillons_path %>" class="btn btn-primary btn-sm">
+  Retour aux Moussaillons</a>
+</p>
